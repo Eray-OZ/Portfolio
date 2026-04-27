@@ -20,15 +20,6 @@ function About() {
             dynamic information efficiently, and
             deliver smart software solutions.
           </p>
-          <p>
-            My
-            main objective is to design systems
-            that do not just use AI as a simple
-            add-on, but leverage it at the core
-            level to automate workflows, process
-            dynamic information efficiently, and
-            deliver smart software solutions.
-          </p>
         </div>
       </div>
     </section>
