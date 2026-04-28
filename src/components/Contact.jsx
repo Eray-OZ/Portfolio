@@ -38,10 +38,10 @@ function Contact() {
 
     try {
       await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
         event.target,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        'YOUR_PUBLIC_KEY'
       )
       setSubmitStatus('success')
       event.target.reset()

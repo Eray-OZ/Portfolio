@@ -1,25 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Projects from './components/Projects.jsx'
-import ExpAndSkills from './components/ExpAndSkills.jsx'
-import Contact from './components/Contact.jsx'
+import Home from './pages/Home.jsx'
+import SubTracker from './pages/projects/SubTracker.jsx'
+import TicketSystem from './pages/projects/TicketSystem.jsx'
+import NoteBrain from './pages/projects/NoteBrain.jsx'
+import PersonalAI from './pages/projects/PersonalAI.jsx'
 
 function App() {
   return (
-    <div className="portfolio-app">
-      <Navbar />
-
-      <main className="portfolio-main">
-        <Hero />
-        <About />
-        <Projects />
-        <ExpAndSkills />
-        <Contact />
-      </main>
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects/sub-tracker" element={<SubTracker />} />
+        <Route path="/projects/ticket-system" element={<TicketSystem />} />
+        <Route path="/projects/notebrain" element={<NoteBrain />} />
+        <Route path="/projects/personal-ai-assistant" element={<PersonalAI />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

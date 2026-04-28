@@ -11,7 +11,7 @@ const experiences = [
 const skillGroups = [
   {
     title: 'Development',
-    items: ['HTML/CSS', 'JavaScript', 'React', 'TypeScript', 'Node.js', 'Nest.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Python'],
+    items: ['HTML', 'JavaScript', 'Node.js', 'React', 'Nest.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Python'],
   },
   {
     title: 'AI & ML',
