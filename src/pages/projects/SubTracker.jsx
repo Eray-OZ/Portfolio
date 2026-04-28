@@ -38,7 +38,7 @@ const features = [
   },
   {
     title: "Intuitive Subscription Creation",
-    description: "Adding a new subscription is a breeze. Preview exactly how your subscription card will look while inputting the necessary service details.",
+    description: "Preview exactly how your subscription card will look while inputting the necessary service details.",
     image: imgAddCardPrew,
     alt: "Add new subscription preview"
   },
@@ -93,7 +93,7 @@ function SubTracker() {
                 <h3 className="font-h3 text-h3 text-primary mb-3">{feature.title}</h3>
                 <p className="font-body-md text-on-surface-variant">{feature.description}</p>
               </div>
-              <div className="p-8 pt-4 flex justify-center items-end bg-gradient-to-t from-surface-container-low/50 to-transparent mt-4">
+              <div className={`p-8 pt-4 pb-8 flex justify-center items-center bg-gradient-to-t from-surface-container-low/50 to-transparent ${index === features.length - 1 ? '-mt-16' : 'mt-4'}`}>
                 <img 
                   src={feature.image} 
                   alt={feature.alt} 
