@@ -56,7 +56,7 @@ function Contact() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/eray-öz-5b7437207/"
+                href="https://www.linkedin.com/in/eray-öz/"
                 rel="noreferrer"
                 target="_blank"
                 className="flex items-center gap-3 px-8 py-4 bg-surface text-on-surface rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-outline-variant/30 hover:scale-105"
