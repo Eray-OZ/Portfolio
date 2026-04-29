@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import emailjs from '@emailjs/browser'
-
 function GithubIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -28,55 +25,29 @@ function LinkedinIcon() {
 }
 
 function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus(null)
-
-    try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        event.target,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      setSubmitStatus('success')
-      event.target.reset()
-    } catch {
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <section className="section section--muted" id="contact">
-      <div className="shell">
-        <div className="contact-card">
-          <div className="contact-card__intro">
-            <h2 className="section-title section-title--tight">Let&apos;s Connect</h2>
+      <div className="shell max-w-2xl mx-auto">
+        <div className="contact-card flex flex-col items-center text-center p-12" style={{ display: 'flex' }}>
+          <div className="contact-card__intro flex flex-col items-center">
+            <h2 className="section-title section-title--tight mb-8">Let&apos;s Connect</h2>
 
-
-            <div className="contact-list">
-              <div className="contact-list__item">
+            <div className="contact-list flex flex-col items-center gap-6 w-full">
+              <a href="mailto:ozeray66@gmail.com" className="contact-list__item group hover:text-primary transition-colors cursor-pointer text-lg">
                 <span className="material-symbols-outlined" aria-hidden="true">
                   mail
                 </span>
                 <span>ozeray66@gmail.com</span>
-              </div>
-
+              </a>
 
               <div className="contact-list__item">
                 <a
-                  className="contact-social"
+                  className="contact-social text-lg"
                   href="https://github.com/Eray-OZ"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <span className="contact-social__icon">
+                  <span className="contact-social__icon scale-125 mr-2">
                     <GithubIcon />
                   </span>
                   <span>GitHub</span>
@@ -85,12 +56,12 @@ function Contact() {
 
               <div className="contact-list__item">
                 <a
-                  className="contact-social"
+                  className="contact-social text-lg"
                   href="https://www.linkedin.com/in/eray-öz-5b7437207/"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <span className="contact-social__icon">
+                  <span className="contact-social__icon scale-125 mr-2">
                     <LinkedinIcon />
                   </span>
                   <span>LinkedIn</span>
@@ -98,34 +69,6 @@ function Contact() {
               </div>
             </div>
           </div>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <label className="contact-form__field">
-              <span className="sr-only">Name</span>
-              <input name="from_name" type="text" placeholder="Name" required />
-            </label>
-            <label className="contact-form__field">
-              <span className="sr-only">Email</span>
-              <input name="from_email" type="email" placeholder="Email" required />
-            </label>
-            <label className="contact-form__field">
-              <span className="sr-only">Message</span>
-              <textarea name="message" rows="4" placeholder="Message" required />
-            </label>
-            {submitStatus === 'success' && (
-              <p style={{ color: 'green', marginBottom: '1rem' }}>Message sent successfully!</p>
-            )}
-            {submitStatus === 'error' && (
-              <p style={{ color: 'red', marginBottom: '1rem' }}>Failed to send message. Please try again.</p>
-            )}
-            <button
-              className="button button--primary button--submit"
-              disabled={isSubmitting}
-              type="submit"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
         </div>
       </div>
     </section>
