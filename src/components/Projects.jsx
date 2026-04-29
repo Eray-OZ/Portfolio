@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import subTrackerBg from '../assets/SubImages/DashboardFull.jpeg'
 import personalAIBg from '../assets/PersonalAIAssistantImages/Chat.png'
+import noteBrainBg from '../assets/NotebrainImages/dashboard.png'
 
 const projects = [
   {
@@ -25,6 +26,8 @@ const projects = [
     title: 'NoteBrain',
     description: 'AI-powered social platform for multi-format content with Gemini RAG architecture.',
     link: '/projects/notebrain',
+    bgImage: noteBrainBg,
+    isMobile: false,
   },
   {
     label: 'MORE',

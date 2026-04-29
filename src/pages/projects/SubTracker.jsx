@@ -94,9 +94,9 @@ function SubTracker() {
         </div>
 
         {/* Features Showcase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
           {features.map((feature, index) => (
-            <section key={index} className="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0px_10px_30px_rgba(15,23,42,0.1)] transition-shadow duration-300 border border-surface-variant/50">
+            <section key={index} className="flex flex-col h-full bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_20px_rgba(15,23,42,0.05)] hover:shadow-[0px_10px_30px_rgba(15,23,42,0.1)] transition-shadow duration-300 border border-surface-variant/50">
               <div className="p-8 pb-4 flex-grow">
                 <h3 className="font-h3 text-h3 text-primary mb-3">{feature.title}</h3>
                 <p className="font-body-md text-on-surface-variant">{feature.description}</p>
