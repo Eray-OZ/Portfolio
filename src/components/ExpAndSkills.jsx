@@ -31,21 +31,6 @@ function ExpAndSkills() {
   return (
     <section className="section section--plain" id="experience">
       <div className="shell split-section">
-        <div>
-          <h2 className="section-title section-title--tight">Experience</h2>
-          <div className="timeline">
-            {experiences.map((item) => (
-              <article className="timeline__item" key={`${item.period}-${item.title}`}>
-                <span className={`timeline__marker${item.current ? ' is-current' : ''}`} />
-                <span className="timeline__period">{item.period}</span>
-                <h3>{item.title}</h3>
-                <p className="timeline__company">{item.company}</p>
-                <p className="timeline__description">{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
         <div id="skills">
           <h2 className="section-title section-title--tight">Skills &amp; Tools</h2>
 
@@ -61,6 +46,21 @@ function ExpAndSkills() {
                   ))}
                 </div>
               </section>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 className="section-title section-title--tight">Experience</h2>
+          <div className="timeline">
+            {experiences.map((item) => (
+              <article className="timeline__item" key={`${item.period}-${item.title}`}>
+                <span className={`timeline__marker${item.current ? ' is-current' : ''}`} />
+                <span className="timeline__period">{item.period}</span>
+                <h3>{item.title}</h3>
+                <p className="timeline__company">{item.company}</p>
+                <p className="timeline__description">{item.description}</p>
+              </article>
             ))}
           </div>
         </div>
