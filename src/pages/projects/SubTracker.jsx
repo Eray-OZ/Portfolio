@@ -63,8 +63,10 @@ const features = [
 ];
 
 function SubTracker() {
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, []);
 
   return (
