@@ -75,9 +75,14 @@ function Navbar() {
           ))}
         </div>
 
-        <button className="button button--primary button--small" type="button">
+        <a 
+          href="/Eray_Oz_CV.pdf" 
+          target="_blank" 
+          rel="noreferrer" 
+          className="button button--primary button--small"
+        >
           Resume
-        </button>
+        </a>
       </nav>
     </header>
   )
