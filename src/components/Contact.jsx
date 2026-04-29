@@ -58,9 +58,7 @@ function Contact() {
         <div className="contact-card">
           <div className="contact-card__intro">
             <h2 className="section-title section-title--tight">Let&apos;s Connect</h2>
-            <p className="contact-card__summary">
-              I&apos;m always open to discussing product design work or partnership opportunities.
-            </p>
+
 
             <div className="contact-list">
               <div className="contact-list__item">
@@ -69,12 +67,7 @@ function Contact() {
                 </span>
                 <span>ozeray66@gmail.com</span>
               </div>
-              <div className="contact-list__item">
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  location_on
-                </span>
-                <span>Bandırma, Balıkesir</span>
-              </div>
+
 
               <div className="contact-list__item">
                 <a
