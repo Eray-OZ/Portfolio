@@ -63,6 +63,10 @@ const features = [
 ];
 
 function SubTracker() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-surface text-on-surface font-body-md text-body-md min-h-screen pt-20 flex flex-col">
       <header className="bg-surface/90 backdrop-blur-md font-manrope text-sm font-medium tracking-tight fixed top-0 left-0 w-full flex justify-between items-center px-8 h-20 max-w-[1120px] mx-auto z-50">
@@ -93,7 +97,7 @@ function SubTracker() {
                 <h3 className="font-h3 text-h3 text-primary mb-3">{feature.title}</h3>
                 <p className="font-body-md text-on-surface-variant">{feature.description}</p>
               </div>
-              <div className={`p-8 pt-4 pb-8 flex justify-center items-center bg-gradient-to-t from-surface-container-low/50 to-transparent ${index === features.length - 1 ? '-mt-16' : 'mt-4'}`}>
+              <div className={`p-8 pt-4 pb-8 flex justify-center ${index === features.length - 1 ? 'items-start -mt-8' : 'items-center mt-4'} bg-gradient-to-t from-surface-container-low/50 to-transparent`}>
                 <img 
                   src={feature.image} 
                   alt={feature.alt} 

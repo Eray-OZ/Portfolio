@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function NoteBrain() {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-surface text-on-surface font-body-md text-body-md min-h-screen pt-20 flex flex-col">
       <header className="bg-surface/90 backdrop-blur-md font-manrope text-sm font-medium tracking-tight fixed top-0 left-0 w-full flex justify-between items-center px-8 h-20 max-w-[1120px] mx-auto z-50">

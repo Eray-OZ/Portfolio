@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import subTrackerBg from '../assets/SubImages/DashboardFull.jpeg'
+import personalAIBg from '../assets/PersonalAIAssistantImages/Chat.png'
 
 const projects = [
   {
@@ -9,12 +10,15 @@ const projects = [
     description: 'A comprehensive tool to manage, monitor, and optimize your monthly subscriptions with real-time analytics.',
     link: '/projects/sub-tracker',
     bgImage: subTrackerBg,
+    isMobile: true,
   },
-  {
-    label: 'SYSTEM OPTIMIZATION',
-    title: 'Ticket-System',
-    description: 'High-performance NestJS backend with Redis and BullMQ for scalable ticket management.',
-    link: '/projects/ticket-system',
+    {
+    label: 'RAG SYSTEM',
+    title: 'Personal AI Assistant',
+    description: 'Built with Next.js, Python, and Ollama, this system provides dedicated chat interfaces for WhatsApp, email, and personal notes — each powered by its own custom RAG pipeline. All text embeddings are generated locally using the Gemma model through Ollama, ensuring zero data ever leaves your device. Query conversations, search through message archives, and extract insights across all your personal data sources entirely offline with complete privacy.',
+    link: '/projects/personal-ai-assistant',
+    bgImage: personalAIBg,
+    isMobile: false,
   },
   {
     label: 'MOBILE/WEB APP',
@@ -23,10 +27,11 @@ const projects = [
     link: '/projects/notebrain',
   },
   {
-    label: 'RAG SYSTEM',
-    title: 'Personal AI Assistant',
-    description: 'Local-first AI assistant with custom RAG pipeline for secure personal data querying.',
-    link: '/projects/personal-ai-assistant',
+    label: 'MORE',
+    title: 'Explore More Projects',
+    description: 'View additional projects and experiments on my GitHub profile.',
+    link: 'https://github.com/Eray-OZ',
+    isExternal: true,
   },
 ]
 
@@ -42,12 +47,19 @@ function Projects() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <Link
-              to={project.link}
-              key={project.title}
-              className="group relative w-full h-[280px] rounded-xl overflow-hidden bg-surface-container-lowest border border-[#1f1f1f] shadow-lg hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row"
-            >
+          {projects.map((project) => {
+            const isExternal = project.isExternal
+            const CardWrapper = isExternal ? 'a' : Link
+            const cardProps = isExternal
+              ? { href: project.link, target: '_blank', rel: 'noreferrer' }
+              : { to: project.link }
+
+            return (
+              <CardWrapper
+                key={project.title}
+                className="group relative w-full h-[280px] rounded-xl overflow-hidden bg-surface-container-lowest border border-[#1f1f1f] shadow-lg hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300 flex flex-col md:flex-row"
+                {...cardProps}
+              >
               {project.bgImage ? (
                 <>
                   {/* Left Column: Content (60%) */}
@@ -75,27 +87,46 @@ function Projects() {
                     {/* Bottom Section */}
                     <div className="mt-auto relative z-10">
                       <span className="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary/80 transition-colors group-hover:translate-x-1 duration-200">
-                        View Details
+                        {isExternal ? 'View on GitHub' : 'View Details'}
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                          {isExternal ? (
+                            <>
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                              <polyline points="15 3 21 3 21 9" />
+                              <line x1="10" x2="21" y1="14" y2="3" />
+                            </>
+                          ) : (
+                            <>
+                              <path d="M5 12h14" />
+                              <path d="m12 5 7 7-7 7" />
+                            </>
+                          )}
                         </svg>
                       </span>
                     </div>
                   </div>
                   {/* Right Column: Image Area (40%) */}
-                  <div className="relative w-full md:w-[40%] bg-gradient-to-br from-surface-container-high to-surface-container-lowest flex items-center justify-center overflow-hidden h-full">
+                  <div className="relative w-full md:w-[40%] bg-gradient-to-br from-surface-container-high to-surface-container-lowest flex items-center justify-center overflow-hidden h-full p-4">
                     {/* Top Inner Highlight */}
                     <div className="absolute top-0 inset-x-0 h-[1px] bg-white/10 z-20" />
-                    {/* Floating App Screen Mockup */}
-                    <div className="relative w-[140px] h-[280px] rounded-[20px] bg-black border-[3px] border-[#2a2a2a] shadow-[0_20px_40px_rgba(0,0,0,0.6)] transform rotate-[-5deg] translate-y-4 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-500 overflow-hidden z-10">
+                    {project.isMobile ? (
+                      /* Floating Phone Mockup */
+                      <div className="relative w-[140px] h-[280px] rounded-[20px] bg-black border-[3px] border-[#2a2a2a] shadow-[0_20px_40px_rgba(0,0,0,0.6)] transform rotate-[-5deg] translate-y-4 group-hover:rotate-0 group-hover:translate-y-0 transition-all duration-500 overflow-hidden z-10">
+                        <img 
+                          src={project.bgImage} 
+                          alt={project.title}
+                          className="w-full h-full object-cover opacity-90"
+                        />
+                      </div>
+                    ) : (
+                      /* Web Project Screenshot */
                       <img 
                         src={project.bgImage} 
                         alt={project.title}
-                        className="w-full h-full object-cover opacity-90"
+                        className="rounded-lg max-h-[220px] w-auto object-contain shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10"
                       />
-                    </div>
-                    {/* Ambient Glow Behind Device */}
+                    )}
+                    {/* Ambient Glow Behind Image */}
                     <div className="absolute inset-0 bg-primary/5 blur-[40px] z-0 mix-blend-screen opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </>
@@ -115,17 +146,28 @@ function Projects() {
                   </div>
                   <div className="mt-auto">
                     <span className="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:translate-x-1 transition-transform duration-200">
-                      View Details
+                      {isExternal ? 'View on GitHub' : 'View Details'}
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
+                        {isExternal ? (
+                          <>
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" x2="21" y1="14" y2="3" />
+                          </>
+                        ) : (
+                          <>
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </>
+                        )}
                       </svg>
                     </span>
                   </div>
                 </div>
               )}
-            </Link>
-          ))}
+              </CardWrapper>
+            )
+          })}
         </div>
       </div>
     </section>
