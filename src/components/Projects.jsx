@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import subTrackerBg from '../assets/SubImages/DashboardFull.jpeg'
 import personalAIBg from '../assets/PersonalAIAssistantImages/Chat.png'
 import noteBrainBg from '../assets/NotebrainImages/dashboard.png'
+import uberCloneBg from '../assets/UberClone/requestUber.png'
 
 const projects = [
   {
@@ -28,6 +29,14 @@ const projects = [
     link: '/projects/notebrain',
     bgImage: noteBrainBg,
     isMobile: false,
+  },
+  {
+    label: 'MOBILE APP',
+    title: 'Uber Clone',
+    description: 'A comprehensive ride-sharing platform with real-time location tracking and dynamic route generation for both passengers and drivers.',
+    link: '/projects/uber-clone',
+    bgImage: uberCloneBg,
+    isMobile: true,
   },
   {
     label: 'MORE',
